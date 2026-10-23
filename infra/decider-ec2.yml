@@ -1,0 +1,134 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: Hush demo host - Strands Decider 2B on CPU plus the Hush agent, Bedrock via instance role
+
+Parameters:
+  InstanceType:
+    Type: String
+    Default: c7i.4xlarge
+  SshCidr:
+    Type: String
+    Description: Your public IP as a /32. SSH is the only inbound port.
+  SshPublicKey:
+    Type: String
+    Description: OpenSSH public key material for the ubuntu user
+  AmiId:
+    Type: AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>
+    Default: /aws/service/canonical/ubuntu/server/24.04/stable/current/amd64/hvm/ebs-gp3/ami-id
+
+Resources:
+  Vpc:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 10.42.0.0/24
+      EnableDnsHostnames: true
+      EnableDnsSupport: true
+      Tags: [{ Key: Name, Value: hush }]
+  Igw:
+    Type: AWS::EC2::InternetGateway
+  IgwAttach:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties: { VpcId: !Ref Vpc, InternetGatewayId: !Ref Igw }
+  Subnet:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref Vpc
+      CidrBlock: 10.42.0.0/25
+      MapPublicIpOnLaunch: true
+      AvailabilityZone: !Select [0, !GetAZs ""]
+  RouteTable:
+    Type: AWS::EC2::RouteTable
+    Properties: { VpcId: !Ref Vpc }
+  DefaultRoute:
+    Type: AWS::EC2::Route
+    DependsOn: IgwAttach
+    Properties: { RouteTableId: !Ref RouteTable, DestinationCidrBlock: 0.0.0.0/0, GatewayId: !Ref Igw }
+  SubnetRoute:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties: { SubnetId: !Ref Subnet, RouteTableId: !Ref RouteTable }
+
+  Sg:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: hush - ssh from one address only
+      VpcId: !Ref Vpc
+      SecurityGroupIngress:
+        - { IpProtocol: tcp, FromPort: 22, ToPort: 22, CidrIp: !Ref SshCidr }
+
+  Key:
+    Type: AWS::EC2::KeyPair
+    Properties:
+      KeyName: !Sub ${AWS::StackName}-key
+      PublicKeyMaterial: !Ref SshPublicKey
+
+  Role:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - { Effect: Allow, Principal: { Service: ec2.amazonaws.com }, Action: sts:AssumeRole }
+      Policies:
+        - PolicyName: bedrock-invoke
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action: [bedrock:InvokeModel, bedrock:InvokeModelWithResponseStream]
+                Resource:
+                  - !Sub arn:aws:bedrock:*::foundation-model/amazon.nova-*
+                  - !Sub arn:aws:bedrock:*:${AWS::AccountId}:inference-profile/*amazon.nova-*
+  Profile:
+    Type: AWS::IAM::InstanceProfile
+    Properties: { Roles: [!Ref Role] }
+
+  Host:
+    Type: AWS::EC2::Instance
+    DependsOn: DefaultRoute
+    Properties:
+      InstanceType: !Ref InstanceType
+      ImageId: !Ref AmiId
+      KeyName: !Ref Key
+      SubnetId: !Ref Subnet
+      SecurityGroupIds: [!Ref Sg]
+      IamInstanceProfile: !Ref Profile
+      MetadataOptions: { HttpTokens: required }
+      BlockDeviceMappings:
+        - DeviceName: /dev/sda1
+          Ebs: { VolumeSize: 40, VolumeType: gp3, Encrypted: true }
+      Tags: [{ Key: Name, Value: hush-decider }]
+      UserData:
+        Fn::Base64: |
+          #!/bin/bash
+          set -euxo pipefail
+          exec > /var/log/hush-setup.log 2>&1
+          apt-get update -y
+          apt-get install -y python3-venv python3-pip git
+          sudo -u ubuntu bash -lc '
+            set -eux
+            python3 -m venv ~/venv
+            ~/venv/bin/pip install -q --upgrade pip
+            ~/venv/bin/pip install -q torch --index-url https://download.pytorch.org/whl/cpu
+            ~/venv/bin/pip install -q "strands-decider>=0.2" "strands-agents>=1.62" fastapi "uvicorn[standard]" boto3 pytest
+            ~/venv/bin/hf download StrandsAgents/strands-decider-2B-qwen3.5-v1-2610
+            ~/venv/bin/hf download Qwen/Qwen3.5-2B-Base --revision b1485b2fa6dfa1287294f269f5fb618e03d52d7c
+          '
+          cat > /etc/systemd/system/decider.service <<'UNIT'
+          [Unit]
+          Description=Strands Decider 2B
+          After=network-online.target
+          [Service]
+          User=ubuntu
+          ExecStart=/home/ubuntu/venv/bin/strands-decider serve StrandsAgents/strands-decider-2B-qwen3.5-v1-2610 --device cpu --host 127.0.0.1 --port 8099
+          Restart=on-failure
+          [Install]
+          WantedBy=multi-user.target
+          UNIT
+          systemctl daemon-reload
+          systemctl enable --now decider
+          touch /var/log/hush-ready
+
+Outputs:
+  PublicIp:
+    Value: !GetAtt Host.PublicIp
+  InstanceId:
+    Value: !Ref Host

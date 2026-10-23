@@ -1,0 +1,28 @@
+# Two containers: the decider on CPU and the hush agent. On a Mac the decider is faster
+# served natively with --device mlx (see README); then run only `hush` and point
+# STRANDS_DECIDER_URL at host.docker.internal:8099.
+services:
+  decider:
+    image: python:3.12-slim
+    command: >
+      sh -c "pip install --no-cache-dir 'strands-decider>=0.2' &&
+             strands-decider serve StrandsAgents/strands-decider-2B-qwen3.5-v1-2610 --device cpu --host 0.0.0.0 --port 8099"
+    volumes:
+      - hf-cache:/root/.cache/huggingface
+    ports: ["8099:8099"]
+
+  hush:
+    build: .
+    depends_on: [decider]
+    environment:
+      AWS_REGION: ${AWS_REGION:-us-east-1}
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID:-}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY:-}
+      AWS_SESSION_TOKEN: ${AWS_SESSION_TOKEN:-}
+      HUSH_MODEL_ID: ${HUSH_MODEL_ID:-us.amazon.nova-2-lite-v1:0}
+      HUSH_NTFY_TOPIC: ${HUSH_NTFY_TOPIC:-}
+      STRANDS_DECIDER_URL: http://decider:8099
+    ports: ["8787:8787"]
+
+volumes:
+  hf-cache:

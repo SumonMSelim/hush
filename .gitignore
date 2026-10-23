@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+morning-notes.md
+replay-results.json
+bench-results.json
+.DS_Store

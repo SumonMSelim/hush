@@ -1,0 +1,27 @@
+[project]
+name = "hush"
+version = "0.1.0"
+description = "On-call gatekeeper: Strands Decider 2B decides whether an alert may wake a human, Amazon Bedrock writes the brief."
+requires-python = ">=3.10"
+license = "MIT"
+dependencies = [
+    "strands-agents>=1.62",
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.30",
+    "boto3>=1.35",
+]
+
+[project.optional-dependencies]
+# The decider itself. On Apple silicon add the mlx extra from a clone of strands-decider.
+decider = ["strands-decider>=0.2"]
+dev = ["pytest>=8.0"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["hush"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
