@@ -2,6 +2,8 @@
 
 **An on-call gatekeeper. Strands Decider 2B decides whether an alert may wake a human. Amazon Bedrock writes the brief for the ones that may.**
 
+**Demo video (2:23):** https://youtu.be/c6Xigd2E96E
+
 Built for the AWS Agent Experience Hackathon, decision pattern **#policy** (classify an incoming request before the agent acts on it), tags `#strands-decider-2b #policy`.
 
 ```
