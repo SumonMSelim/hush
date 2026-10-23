@@ -1,0 +1,1284 @@
+[
+ {
+  "receiver": "hush",
+  "status": "firing",
+  "alerts": [
+   {
+    "status": "firing",
+    "labels": {
+     "alertname": "Web service down",
+     "severity": "critical",
+     "grafana_folder": "Homelab",
+     "instance": "immich.mol.la",
+     "job": "blackbox"
+    },
+    "annotations": {
+     "summary": "immich.mol.la is down",
+     "description": "immich.mol.la (https://immich.mol.la) not answering HTTP for 5m"
+    },
+    "startsAt": "2026-10-22T03:00:00+00:00",
+    "endsAt": "0001-01-01T00:00:00Z",
+    "fingerprint": "4aa64e5e926f73f8"
+   }
+  ],
+  "commonLabels": {
+   "alertname": "Web service down",
+   "severity": "critical",
+   "grafana_folder": "Homelab",
+   "instance": "immich.mol.la",
+   "job": "blackbox"
+  },
+  "title": "[FIRING] Web service down",
+  "expect": "page"
+ },
+ {
+  "receiver": "hush",
+  "status": "firing",
+  "alerts": [
+   {
+    "status": "firing",
+    "labels": {
+     "alertname": "Web service down",
+     "severity": "critical",
+     "grafana_folder": "Homelab",
+     "instance": "outline.mol.la",
+     "job": "blackbox"
+    },
+    "annotations": {
+     "summary": "outline.mol.la is down",
+     "description": "outline.mol.la (https://outline.mol.la) not answering HTTP for 5m"
+    },
+    "startsAt": "2026-10-22T03:00:00+00:00",
+    "endsAt": "0001-01-01T00:00:00Z",
+    "fingerprint": "6c2035778b8d3cb1"
+   }
+  ],
+  "commonLabels": {
+   "alertname": "Web service down",
+   "severity": "critical",
+   "grafana_folder": "Homelab",
+   "instance": "outline.mol.la",
+   "job": "blackbox"
+  },
+  "title": "[FIRING] Web service down",
+  "expect": "page"
+ },
+ {
+  "receiver": "hush",
+  "status": "firing",
+  "alerts": [
+   {
+    "status": "firing",
+    "labels": {
+     "alertname": "Scrape target down",
+     "severity": "critical",
+     "grafana_folder": "Homelab",
+     "instance": "pve1:9100",
+     "job": "node"
+    },
+    "annotations": {
+     "summary": "node/pve1:9100 is not scraped",
+     "description": "node target pve1:9100 has been unreachable or missing for 5m (host down, tailnet link lost, or exporter dead)"
+    },
+    "startsAt": "2026-10-22T03:00:00+00:00",
+    "endsAt": "0001-01-01T00:00:00Z",
+    "fingerprint": "0fd31cf0ec62b6da"
+   }
+  ],
+  "commonLabels": {
+   "alertname": "Scrape target down",
+   "severity": "critical",
+   "grafana_folder": "Homelab",
+   "instance": "pve1:9100",
+   "job": "node"
+  },
+  "title": "[FIRING] Scrape target down",
+  "expect": "page"
+ },
+ {
+  "receiver": "hush",
+  "status": "firing",
+  "alerts": [
+   {
+    "status": "firing",
+    "labels": {
+     "alertname": "Timothy backend unhealthy",
+     "severity": "critical",
+     "grafana_folder": "Homelab",
+     "instance": "timothy.mol.la",
+     "job": "blackbox-timothy-health"
+    },
+    "annotations": {
+     "summary": "timothy health probe failing",
+     "description": "https://timothy.mol.la/healthz returned non-200 for 5m"
+    },
+    "startsAt": "2026-10-22T03:00:00+00:00",
+    "endsAt": "0001-01-01T00:00:00Z",
+    "fingerprint": "7589dc147df52def"
+   }
+  ],
+  "commonLabels": {
+   "alertname": "Timothy backend unhealthy",
+   "severity": "critical",
+   "grafana_folder": "Homelab",
+   "instance": "timothy.mol.la",
+   "job": "blackbox-timothy-health"
+  },
+  "title": "[FIRING] Timothy backend unhealthy",
+  "expect": "page"
+ },
+ {
+  "receiver": "hush",
+  "status": "firing",
+  "alerts": [
+   {
+    "status": "firing",
+    "labels": {
+     "alertname": "PostgreSQL down",
+     "severity": "critical",
+     "grafana_folder": "Homelab",
+     "instance": "db1:9187",
+     "job": "postgres"
+    },
+    "annotations": {
+     "summary": "postgresql on db1 is not accepting connections",
+     "description": "pg_up == 0 on db1 for 3m; immich and outline depend on it"
+    },
+    "startsAt": "2026-10-22T03:00:00+00:00",
+    "endsAt": "0001-01-01T00:00:00Z",
+    "fingerprint": "470f30d100962b79"
+   }
+  ],
+  "commonLabels": {
+   "alertname": "PostgreSQL down",
+   "severity": "critical",
+   "grafana_folder": "Homelab",
+   "instance": "db1:9187",
+   "job": "postgres"
+  },
+  "title": "[FIRING] PostgreSQL down",
+  "expect": "page"
+ },
+ {
+  "receiver": "hush",
+  "status": "firing",
+  "alerts": [
+   {
+    "status": "firing",
+    "labels": {
+     "alertname": "Proxmox node offline",
+     "severity": "critical",
+     "grafana_folder": "Homelab",
+     "instance": "pve2",
+     "job": "pve"
+    },
+    "annotations": {
+     "summary": "pve2 is offline",
+     "description": "pve_node_up{node=\"pve2\"} == 0 for 5m; 6 LXCs live on this node"
+    },
+    "startsAt": "2026-10-22T03:00:00+00:00",
+    "endsAt": "0001-01-01T00:00:00Z",
+    "fingerprint": "378044ccebd09897"
+   }
+  ],
+  "commonLabels": {
+   "alertname": "Proxmox node offline",
+   "severity": "critical",
+   "grafana_folder": "Homelab",
+   "instance": "pve2",
+   "job": "pve"
+  },
+  "title": "[FIRING] Proxmox node offline",
+  "expect": "page"
+ },
+ {
+  "receiver": "hush",
+  "status": "firing",
+  "alerts": [
+   {
+    "status": "firing",
+    "labels": {
+     "alertname": "Caddy reverse proxy down",
+     "severity": "critical",
+     "grafana_folder": "Homelab",
+     "instance": "edge1:2019",
+     "job": "caddy"
+    },
+    "annotations": {
+     "summary": "caddy admin API unreachable",
+     "description": "caddy on edge1 not answering for 5m; every public site goes through it"
+    },
+    "startsAt": "2026-10-22T03:00:00+00:00",
+    "endsAt": "0001-01-01T00:00:00Z",
+    "fingerprint": "23a4be063ad7fb83"
+   }
+  ],
+  "commonLabels": {
+   "alertname": "Caddy reverse proxy down",
+   "severity": "critical",
+   "grafana_folder": "Homelab",
+   "instance": "edge1:2019",
+   "job": "caddy"
+  },
+  "title": "[FIRING] Caddy reverse proxy down",
+  "expect": "page"
+ },
+ {
+  "receiver": "hush",
+  "status": "firing",
+  "alerts": [
+   {
+    "status": "firing",
+    "labels": {
+     "alertname": "Vault sealed",
+     "severity": "critical",
+     "grafana_folder": "Homelab",
+     "instance": "vault1:8200",
+     "job": "vault"
+    },
+    "annotations": {
+     "summary": "vault is sealed",
+     "description": "vault_core_unsealed == 0 on vault1 for 2m; services cannot fetch secrets on restart"
+    },
+    "startsAt": "2026-10-22T03:00:00+00:00",
+    "endsAt": "0001-01-01T00:00:00Z",
+    "fingerprint": "4619634dee6a7025"
+   }
+  ],
+  "commonLabels": {
+   "alertname": "Vault sealed",
+   "severity": "critical",
+   "grafana_folder": "Homelab",
+   "instance": "vault1:8200",
+   "job": "vault"
+  },
+  "title": "[FIRING] Vault sealed",
+  "expect": "page"
+ },
+ {
+  "receiver": "hush",
+  "status": "firing",
+  "alerts": [
+   {
+    "status": "firing",
+    "labels": {
+     "alertname": "Root filesystem nearly full",
+     "severity": "critical",
+     "grafana_folder": "Homelab",
+     "instance": "db1",
+     "mountpoint": "/"
+    },
+    "annotations": {
+     "summary": "db1 root fs at 97%",
+     "description": "node_filesystem_avail_bytes on db1 / is 3% free and falling 1%/h; postgres will stop accepting writes"
+    },
+    "startsAt": "2026-10-22T03:00:00+00:00",
+    "endsAt": "0001-01-01T00:00:00Z",
+    "fingerprint": "0fd4879bae62f5b4"
+   }
+  ],
+  "commonLabels": {
+   "alertname": "Root filesystem nearly full",
+   "severity": "critical",
+   "grafana_folder": "Homelab",
+   "instance": "db1",
+   "mountpoint": "/"
+  },
+  "title": "[FIRING] Root filesystem nearly full",
+  "expect": "page"
+ },
+ {
+  "receiver": "hush",
+  "status": "firing",
+  "alerts": [
+   {
+    "status": "firing",
+    "labels": {
+     "alertname": "Backup failed",
+     "severity": "critical",
+     "grafana_folder": "Homelab",
+     "instance": "backup1",
+     "job": "restic"
+    },
+    "annotations": {
+     "summary": "nightly restic backup to B2 failed",
+     "description": "restic backup exit code 1 on backup1: repository lock held by another process; second consecutive failure"
+    },
+    "startsAt": "2026-10-22T03:00:00+00:00",
+    "endsAt": "0001-01-01T00:00:00Z",
+    "fingerprint": "0b6cd0d2520db1c3"
+   }
+  ],
+  "commonLabels": {
+   "alertname": "Backup failed",
+   "severity": "critical",
+   "grafana_folder": "Homelab",
+   "instance": "backup1",
+   "job": "restic"
+  },
+  "title": "[FIRING] Backup failed",
+  "expect": "page"
+ },
+ {
+  "receiver": "hush",
+  "status": "firing",
+  "alerts": [
+   {
+    "status": "firing",
+    "labels": {
+     "alertname": "AdGuard DNS down",
+     "severity": "critical",
+     "grafana_folder": "Homelab",
+     "instance": "adguard",
+     "job": "blackbox-dns"
+    },
+    "annotations": {
+     "summary": "adguard not answering DNS",
+     "description": "dns probe to 192.168.178.10:53 failing for 5m; whole LAN loses name resolution"
+    },
+    "startsAt": "2026-10-22T03:00:00+00:00",
+    "endsAt": "0001-01-01T00:00:00Z",
+    "fingerprint": "1204ee9d830bf024"
+   }
+  ],
+  "commonLabels": {
+   "alertname": "AdGuard DNS down",
+   "severity": "critical",
+   "grafana_folder": "Homelab",
+   "instance": "adguard",
+   "job": "blackbox-dns"
+  },
+  "title": "[FIRING] AdGuard DNS down",
+  "expect": "page"
+ },
+ {
+  "receiver": "hush",
+  "status": "firing",
+  "alerts": [
+   {
+    "status": "firing",
+    "labels": {
+     "alertname": "SSH brute force",
+     "severity": "warning",
+     "grafana_folder": "Homelab",
+     "instance": "edge1",
+     "job": "loki"
+    },
+    "annotations": {
+     "summary": "412 failed ssh logins on edge1 in 10m",
+     "description": "sshd auth failures from 14 source IPs in 10m on the public edge host; fail2ban is not banning"
+    },
+    "startsAt": "2026-10-22T03:00:00+00:00",
+    "endsAt": "0001-01-01T00:00:00Z",
+    "fingerprint": "565f515cf65b3bca"
+   }
+  ],
+  "commonLabels": {
+   "alertname": "SSH brute force",
+   "severity": "warning",
+   "grafana_folder": "Homelab",
+   "instance": "edge1",
+   "job": "loki"
+  },
+  "title": "[FIRING] SSH brute force",
+  "expect": "page"
+ },
+ {
+  "receiver": "hush",
+  "status": "firing",
+  "alerts": [
+   {
+    "status": "firing",
+    "labels": {
+     "alertname": "Memory pressure",
+     "severity": "critical",
+     "grafana_folder": "Homelab",
+     "instance": "media1",
+     "job": "node"
+    },
+    "annotations": {
+     "summary": "OOM killer active on media1",
+     "description": "3 OOM kills in 10m on media1 (jellyfin, navidrome); available memory 2%"
+    },
+    "startsAt": "2026-10-22T03:00:00+00:00",
+    "endsAt": "0001-01-01T00:00:00Z",
+    "fingerprint": "706733461a5a7130"
+   }
+  ],
+  "commonLabels": {
+   "alertname": "Memory pressure",
+   "severity": "critical",
+   "grafana_folder": "Homelab",
+   "instance": "media1",
+   "job": "node"
+  },
+  "title": "[FIRING] Memory pressure",
+  "expect": "page"
+ },
+ {
+  "receiver": "hush",
+  "status": "firing",
+  "alerts": [
+   {
+    "status": "firing",
+    "labels": {
+     "alertname": "TLS certificate expiring",
+     "severity": "critical",
+     "grafana_folder": "Homelab",
+     "instance": "mol.la",
+     "job": "blackbox"
+    },
+    "annotations": {
+     "summary": "cert for *.mol.la expires in 18h",
+     "description": "probe_ssl_earliest_cert_expiry for *.mol.la is 18h away; renewal cron has failed twice"
+    },
+    "startsAt": "2026-10-22T03:00:00+00:00",
+    "endsAt": "0001-01-01T00:00:00Z",
+    "fingerprint": "3d39205c3c530e29"
+   }
+  ],
+  "commonLabels": {
+   "alertname": "TLS certificate expiring",
+   "severity": "critical",
+   "grafana_folder": "Homelab",
+   "instance": "mol.la",
+   "job": "blackbox"
+  },
+  "title": "[FIRING] TLS certificate expiring",
+  "expect": "page"
+ },
+ {
+  "receiver": "hush",
+  "status": "firing",
+  "alerts": [
+   {
+    "status": "firing",
+    "labels": {
+     "alertname": "Root filesystem nearly full",
+     "severity": "warning",
+     "grafana_folder": "Homelab",
+     "instance": "media1",
+     "mountpoint": "/"
+    },
+    "annotations": {
+     "summary": "media1 root fs at 82%",
+     "description": "node_filesystem_avail_bytes on media1 / is 18% free, stable over 24h"
+    },
+    "startsAt": "2026-10-22T03:00:00+00:00",
+    "endsAt": "0001-01-01T00:00:00Z",
+    "fingerprint": "6238023179f122ca"
+   }
+  ],
+  "commonLabels": {
+   "alertname": "Root filesystem nearly full",
+   "severity": "warning",
+   "grafana_folder": "Homelab",
+   "instance": "media1",
+   "mountpoint": "/"
+  },
+  "title": "[FIRING] Root filesystem nearly full",
+  "expect": "review"
+ },
+ {
+  "receiver": "hush",
+  "status": "firing",
+  "alerts": [
+   {
+    "status": "firing",
+    "labels": {
+     "alertname": "High CPU",
+     "severity": "warning",
+     "grafana_folder": "Homelab",
+     "instance": "pve1",
+     "job": "node"
+    },
+    "annotations": {
+     "summary": "pve1 CPU above 85% for 15m",
+     "description": "jellyfin transcoding two streams; load average 14 on 16 cores"
+    },
+    "startsAt": "2026-10-22T03:00:00+00:00",
+    "endsAt": "0001-01-01T00:00:00Z",
+    "fingerprint": "5e8bfa377184268a"
+   }
+  ],
+  "commonLabels": {
+   "alertname": "High CPU",
+   "severity": "warning",
+   "grafana_folder": "Homelab",
+   "instance": "pve1",
+   "job": "node"
+  },
+  "title": "[FIRING] High CPU",
+  "expect": "review"
+ },
+ {
+  "receiver": "hush",
+  "status": "firing",
+  "alerts": [
+   {
+    "status": "firing",
+    "labels": {
+     "alertname": "TLS certificate expiring",
+     "severity": "warning",
+     "grafana_folder": "Homelab",
+     "instance": "jellyfin.mol.la",
+     "job": "blackbox"
+    },
+    "annotations": {
+     "summary": "cert for jellyfin.mol.la expires in 12 days",
+     "description": "probe_ssl_earliest_cert_expiry is 12d away; auto-renewal scheduled in 2d"
+    },
+    "startsAt": "2026-10-22T03:00:00+00:00",
+    "endsAt": "0001-01-01T00:00:00Z",
+    "fingerprint": "30f2fa95e71026e3"
+   }
+  ],
+  "commonLabels": {
+   "alertname": "TLS certificate expiring",
+   "severity": "warning",
+   "grafana_folder": "Homelab",
+   "instance": "jellyfin.mol.la",
+   "job": "blackbox"
+  },
+  "title": "[FIRING] TLS certificate expiring",
+  "expect": "review"
+ },
+ {
+  "receiver": "hush",
+  "status": "firing",
+  "alerts": [
+   {
+    "status": "firing",
+    "labels": {
+     "alertname": "Docker image pull failures",
+     "severity": "warning",
+     "grafana_folder": "Homelab",
+     "instance": "apps1",
+     "job": "watchtower"
+    },
+    "annotations": {
+     "summary": "watchtower failed to pull 2 images",
+     "description": "ghcr.io rate limit hit while pulling draftly and timothy images; will retry in 6h"
+    },
+    "startsAt": "2026-10-22T03:00:00+00:00",
+    "endsAt": "0001-01-01T00:00:00Z",
+    "fingerprint": "3f0322cfadbd7123"
+   }
+  ],
+  "commonLabels": {
+   "alertname": "Docker image pull failures",
+   "severity": "warning",
+   "grafana_folder": "Homelab",
+   "instance": "apps1",
+   "job": "watchtower"
+  },
+  "title": "[FIRING] Docker image pull failures",
+  "expect": "review"
+ },
+ {
+  "receiver": "hush",
+  "status": "firing",
+  "alerts": [
+   {
+    "status": "firing",
+    "labels": {
+     "alertname": "Redis memory high",
+     "severity": "warning",
+     "grafana_folder": "Homelab",
+     "instance": "apps1:6379",
+     "job": "redis"
+    },
+    "annotations": {
+     "summary": "redis on apps1 at 78% of maxmemory",
+     "description": "used_memory 1.56GB of 2GB; eviction policy allkeys-lru is active"
+    },
+    "startsAt": "2026-10-22T03:00:00+00:00",
+    "endsAt": "0001-01-01T00:00:00Z",
+    "fingerprint": "705e0c3842362461"
+   }
+  ],
+  "commonLabels": {
+   "alertname": "Redis memory high",
+   "severity": "warning",
+   "grafana_folder": "Homelab",
+   "instance": "apps1:6379",
+   "job": "redis"
+  },
+  "title": "[FIRING] Redis memory high",
+  "expect": "review"
+ },
+ {
+  "receiver": "hush",
+  "status": "firing",
+  "alerts": [
+   {
+    "status": "firing",
+    "labels": {
+     "alertname": "Slow PostgreSQL queries",
+     "severity": "warning",
+     "grafana_folder": "Homelab",
+     "instance": "db1:9187",
+     "job": "postgres"
+    },
+    "annotations": {
+     "summary": "p99 query latency 2.4s on db1",
+     "description": "pg_stat_statements shows immich thumbnail job queries above 2s for 20m"
+    },
+    "startsAt": "2026-10-22T03:00:00+00:00",
+    "endsAt": "0001-01-01T00:00:00Z",
+    "fingerprint": "4a70c57ee4e02243"
+   }
+  ],
+  "commonLabels": {
+   "alertname": "Slow PostgreSQL queries",
+   "severity": "warning",
+   "grafana_folder": "Homelab",
+   "instance": "db1:9187",
+   "job": "postgres"
+  },
+  "title": "[FIRING] Slow PostgreSQL queries",
+  "expect": "review"
+ },
+ {
+  "receiver": "hush",
+  "status": "firing",
+  "alerts": [
+   {
+    "status": "firing",
+    "labels": {
+     "alertname": "Unattended upgrades pending reboot",
+     "severity": "warning",
+     "grafana_folder": "Homelab",
+     "instance": "fleet",
+     "job": "node"
+    },
+    "annotations": {
+     "summary": "4 hosts need a reboot",
+     "description": "kernel update applied on pve1, pve2, db1, apps1; reboot required"
+    },
+    "startsAt": "2026-10-22T03:00:00+00:00",
+    "endsAt": "0001-01-01T00:00:00Z",
+    "fingerprint": "05567ae32d706b6d"
+   }
+  ],
+  "commonLabels": {
+   "alertname": "Unattended upgrades pending reboot",
+   "severity": "warning",
+   "grafana_folder": "Homelab",
+   "instance": "fleet",
+   "job": "node"
+  },
+  "title": "[FIRING] Unattended upgrades pending reboot",
+  "expect": "review"
+ },
+ {
+  "receiver": "hush",
+  "status": "firing",
+  "alerts": [
+   {
+    "status": "firing",
+    "labels": {
+     "alertname": "Tailscale node offline",
+     "severity": "warning",
+     "grafana_folder": "Homelab",
+     "instance": "laptop-sumon",
+     "job": "tailscale"
+    },
+    "annotations": {
+     "summary": "laptop-sumon left the tailnet",
+     "description": "tailscale node laptop-sumon last seen 3h ago; it is a client device, not a server"
+    },
+    "startsAt": "2026-10-22T03:00:00+00:00",
+    "endsAt": "0001-01-01T00:00:00Z",
+    "fingerprint": "4ca26c770c0e95eb"
+   }
+  ],
+  "commonLabels": {
+   "alertname": "Tailscale node offline",
+   "severity": "warning",
+   "grafana_folder": "Homelab",
+   "instance": "laptop-sumon",
+   "job": "tailscale"
+  },
+  "title": "[FIRING] Tailscale node offline",
+  "expect": "review"
+ },
+ {
+  "receiver": "hush",
+  "status": "firing",
+  "alerts": [
+   {
+    "status": "firing",
+    "labels": {
+     "alertname": "SMART warning",
+     "severity": "warning",
+     "grafana_folder": "Homelab",
+     "instance": "pve2",
+     "device": "sda"
+    },
+    "annotations": {
+     "summary": "sda on pve2 reports 3 reallocated sectors",
+     "description": "smartmon_reallocated_sector_ct increased from 0 to 3 in 7d on a ZFS mirror member; pool is ONLINE"
+    },
+    "startsAt": "2026-10-22T03:00:00+00:00",
+    "endsAt": "0001-01-01T00:00:00Z",
+    "fingerprint": "6d22f4fc64453d2d"
+   }
+  ],
+  "commonLabels": {
+   "alertname": "SMART warning",
+   "severity": "warning",
+   "grafana_folder": "Homelab",
+   "instance": "pve2",
+   "device": "sda"
+  },
+  "title": "[FIRING] SMART warning",
+  "expect": "review"
+ },
+ {
+  "receiver": "hush",
+  "status": "firing",
+  "alerts": [
+   {
+    "status": "firing",
+    "labels": {
+     "alertname": "GitHub runner idle",
+     "severity": "warning",
+     "grafana_folder": "Homelab",
+     "instance": "build1",
+     "job": "github-runner"
+    },
+    "annotations": {
+     "summary": "self-hosted runner offline 2h",
+     "description": "gh runner on build1 not polling; no jobs queued"
+    },
+    "startsAt": "2026-10-22T03:00:00+00:00",
+    "endsAt": "0001-01-01T00:00:00Z",
+    "fingerprint": "24c0f7f54ee1ce4f"
+   }
+  ],
+  "commonLabels": {
+   "alertname": "GitHub runner idle",
+   "severity": "warning",
+   "grafana_folder": "Homelab",
+   "instance": "build1",
+   "job": "github-runner"
+  },
+  "title": "[FIRING] GitHub runner idle",
+  "expect": "review"
+ },
+ {
+  "receiver": "hush",
+  "status": "firing",
+  "alerts": [
+   {
+    "status": "firing",
+    "labels": {
+     "alertname": "Immich job queue backlog",
+     "severity": "warning",
+     "grafana_folder": "Homelab",
+     "instance": "immich",
+     "job": "immich"
+    },
+    "annotations": {
+     "summary": "12k thumbnail jobs queued",
+     "description": "immich microservices backlog grew after bulk import; processing at 40/min"
+    },
+    "startsAt": "2026-10-22T03:00:00+00:00",
+    "endsAt": "0001-01-01T00:00:00Z",
+    "fingerprint": "4eccdc5ac4c6826c"
+   }
+  ],
+  "commonLabels": {
+   "alertname": "Immich job queue backlog",
+   "severity": "warning",
+   "grafana_folder": "Homelab",
+   "instance": "immich",
+   "job": "immich"
+  },
+  "title": "[FIRING] Immich job queue backlog",
+  "expect": "review"
+ },
+ {
+  "receiver": "hush",
+  "status": "firing",
+  "alerts": [
+   {
+    "status": "firing",
+    "labels": {
+     "alertname": "Memory pressure",
+     "severity": "warning",
+     "grafana_folder": "Homelab",
+     "instance": "apps1",
+     "job": "node"
+    },
+    "annotations": {
+     "summary": "apps1 at 88% memory",
+     "description": "available memory 12% on apps1 for 30m, no OOM kills, swap unused"
+    },
+    "startsAt": "2026-10-22T03:00:00+00:00",
+    "endsAt": "0001-01-01T00:00:00Z",
+    "fingerprint": "7357675aea5d49f1"
+   }
+  ],
+  "commonLabels": {
+   "alertname": "Memory pressure",
+   "severity": "warning",
+   "grafana_folder": "Homelab",
+   "instance": "apps1",
+   "job": "node"
+  },
+  "title": "[FIRING] Memory pressure",
+  "expect": "review"
+ },
+ {
+  "receiver": "hush",
+  "status": "resolved",
+  "alerts": [
+   {
+    "status": "resolved",
+    "labels": {
+     "alertname": "Web service down",
+     "severity": "critical",
+     "grafana_folder": "Homelab",
+     "instance": "immich.mol.la",
+     "job": "blackbox"
+    },
+    "annotations": {
+     "summary": "immich.mol.la is down",
+     "description": "immich.mol.la (https://immich.mol.la) not answering HTTP for 5m"
+    },
+    "startsAt": "2026-10-22T03:06:00+00:00",
+    "endsAt": "2026-10-22T03:10:00+00:00",
+    "fingerprint": "447821742c506777"
+   }
+  ],
+  "commonLabels": {
+   "alertname": "Web service down",
+   "severity": "critical",
+   "grafana_folder": "Homelab",
+   "instance": "immich.mol.la",
+   "job": "blackbox"
+  },
+  "title": "[RESOLVED] Web service down",
+  "expect": "drop"
+ },
+ {
+  "receiver": "hush",
+  "status": "firing",
+  "alerts": [
+   {
+    "status": "firing",
+    "labels": {
+     "alertname": "Scrape target down",
+     "severity": "critical",
+     "grafana_folder": "Homelab",
+     "instance": "laptop-sumon:9100",
+     "job": "node"
+    },
+    "annotations": {
+     "summary": "node/laptop-sumon:9100 is not scraped",
+     "description": "node target laptop-sumon:9100 has been unreachable or missing for 5m (host down, tailnet link lost, or exporter dead)"
+    },
+    "startsAt": "2026-10-22T03:00:00+00:00",
+    "endsAt": "0001-01-01T00:00:00Z",
+    "fingerprint": "2272be9191500008"
+   }
+  ],
+  "commonLabels": {
+   "alertname": "Scrape target down",
+   "severity": "critical",
+   "grafana_folder": "Homelab",
+   "instance": "laptop-sumon:9100",
+   "job": "node"
+  },
+  "title": "[FIRING] Scrape target down",
+  "expect": "drop"
+ },
+ {
+  "receiver": "hush",
+  "status": "firing",
+  "alerts": [
+   {
+    "status": "firing",
+    "labels": {
+     "alertname": "Scrape target down",
+     "severity": "critical",
+     "grafana_folder": "Homelab",
+     "instance": "dev-lxc:8080",
+     "job": "cadvisor",
+     "env": "dev"
+    },
+    "annotations": {
+     "summary": "cadvisor/dev-lxc:8080 is not scraped",
+     "description": "cadvisor target dev-lxc:8080 has been unreachable or missing for 5m; dev-lxc is a throwaway dev container"
+    },
+    "startsAt": "2026-10-22T03:00:00+00:00",
+    "endsAt": "0001-01-01T00:00:00Z",
+    "fingerprint": "6496ede2693016f0"
+   }
+  ],
+  "commonLabels": {
+   "alertname": "Scrape target down",
+   "severity": "critical",
+   "grafana_folder": "Homelab",
+   "instance": "dev-lxc:8080",
+   "job": "cadvisor",
+   "env": "dev"
+  },
+  "title": "[FIRING] Scrape target down",
+  "expect": "drop"
+ },
+ {
+  "receiver": "hush",
+  "status": "resolved",
+  "alerts": [
+   {
+    "status": "resolved",
+    "labels": {
+     "alertname": "High CPU",
+     "severity": "warning",
+     "grafana_folder": "Homelab",
+     "instance": "pve1",
+     "job": "node"
+    },
+    "annotations": {
+     "summary": "pve1 CPU above 85% for 15m",
+     "description": "jellyfin transcoding; load returned to normal"
+    },
+    "startsAt": "2026-10-22T03:20:00+00:00",
+    "endsAt": "2026-10-22T03:24:00+00:00",
+    "fingerprint": "1176175d6c863255"
+   }
+  ],
+  "commonLabels": {
+   "alertname": "High CPU",
+   "severity": "warning",
+   "grafana_folder": "Homelab",
+   "instance": "pve1",
+   "job": "node"
+  },
+  "title": "[RESOLVED] High CPU",
+  "expect": "drop"
+ },
+ {
+  "receiver": "hush",
+  "status": "firing",
+  "alerts": [
+   {
+    "status": "firing",
+    "labels": {
+     "alertname": "Backup finished",
+     "severity": "info",
+     "grafana_folder": "Homelab",
+     "instance": "backup1",
+     "job": "restic"
+    },
+    "annotations": {
+     "summary": "nightly restic backup completed",
+     "description": "restic backup on backup1 finished in 14m, 2.1GB added, snapshot 7f3a9c"
+    },
+    "startsAt": "2026-10-22T03:00:00+00:00",
+    "endsAt": "0001-01-01T00:00:00Z",
+    "fingerprint": "04b6ffa5ecaa4e12"
+   }
+  ],
+  "commonLabels": {
+   "alertname": "Backup finished",
+   "severity": "info",
+   "grafana_folder": "Homelab",
+   "instance": "backup1",
+   "job": "restic"
+  },
+  "title": "[FIRING] Backup finished",
+  "expect": "drop"
+ },
+ {
+  "receiver": "hush",
+  "status": "firing",
+  "alerts": [
+   {
+    "status": "firing",
+    "labels": {
+     "alertname": "Docker prune completed",
+     "severity": "info",
+     "grafana_folder": "Homelab",
+     "instance": "fleet",
+     "job": "cron"
+    },
+    "annotations": {
+     "summary": "weekly docker prune freed 18GB",
+     "description": "deploy_docker_prune ran on apps1, media1; 18.4GB reclaimed"
+    },
+    "startsAt": "2026-10-22T03:00:00+00:00",
+    "endsAt": "0001-01-01T00:00:00Z",
+    "fingerprint": "78753865440502f8"
+   }
+  ],
+  "commonLabels": {
+   "alertname": "Docker prune completed",
+   "severity": "info",
+   "grafana_folder": "Homelab",
+   "instance": "fleet",
+   "job": "cron"
+  },
+  "title": "[FIRING] Docker prune completed",
+  "expect": "drop"
+ },
+ {
+  "receiver": "hush",
+  "status": "firing",
+  "alerts": [
+   {
+    "status": "firing",
+    "labels": {
+     "alertname": "Test alert",
+     "severity": "info",
+     "grafana_folder": "Homelab",
+     "instance": "grafana",
+     "job": "grafana"
+    },
+    "annotations": {
+     "summary": "TestAlert from Grafana",
+     "description": "This is a test notification sent from the Grafana contact point editor"
+    },
+    "startsAt": "2026-10-22T03:00:00+00:00",
+    "endsAt": "0001-01-01T00:00:00Z",
+    "fingerprint": "192e4d994cbeaa77"
+   }
+  ],
+  "commonLabels": {
+   "alertname": "Test alert",
+   "severity": "info",
+   "grafana_folder": "Homelab",
+   "instance": "grafana",
+   "job": "grafana"
+  },
+  "title": "[FIRING] Test alert",
+  "expect": "drop"
+ },
+ {
+  "receiver": "hush",
+  "status": "firing",
+  "alerts": [
+   {
+    "status": "firing",
+    "labels": {
+     "alertname": "Jellyfin stream started",
+     "severity": "info",
+     "grafana_folder": "Homelab",
+     "instance": "media1",
+     "job": "jellyfin"
+    },
+    "annotations": {
+     "summary": "2 active streams on jellyfin",
+     "description": "jellyfin_active_streams == 2 (direct play)"
+    },
+    "startsAt": "2026-10-22T03:00:00+00:00",
+    "endsAt": "0001-01-01T00:00:00Z",
+    "fingerprint": "4322cddedc171ad9"
+   }
+  ],
+  "commonLabels": {
+   "alertname": "Jellyfin stream started",
+   "severity": "info",
+   "grafana_folder": "Homelab",
+   "instance": "media1",
+   "job": "jellyfin"
+  },
+  "title": "[FIRING] Jellyfin stream started",
+  "expect": "drop"
+ },
+ {
+  "receiver": "hush",
+  "status": "resolved",
+  "alerts": [
+   {
+    "status": "resolved",
+    "labels": {
+     "alertname": "Web service down",
+     "severity": "critical",
+     "grafana_folder": "Homelab",
+     "instance": "draftly.mol.la",
+     "job": "blackbox"
+    },
+    "annotations": {
+     "summary": "draftly.mol.la is down",
+     "description": "draftly.mol.la not answering HTTP for 5m"
+    },
+    "startsAt": "2026-10-22T03:09:00+00:00",
+    "endsAt": "2026-10-22T03:13:00+00:00",
+    "fingerprint": "0a2ee6c19c4bd12b"
+   }
+  ],
+  "commonLabels": {
+   "alertname": "Web service down",
+   "severity": "critical",
+   "grafana_folder": "Homelab",
+   "instance": "draftly.mol.la",
+   "job": "blackbox"
+  },
+  "title": "[RESOLVED] Web service down",
+  "expect": "drop"
+ },
+ {
+  "receiver": "hush",
+  "status": "firing",
+  "alerts": [
+   {
+    "status": "firing",
+    "labels": {
+     "alertname": "Package upgrades available",
+     "severity": "info",
+     "grafana_folder": "Homelab",
+     "instance": "fleet",
+     "job": "node"
+    },
+    "annotations": {
+     "summary": "37 packages upgradable across the fleet",
+     "description": "apt lists 37 upgradable packages; none are security updates"
+    },
+    "startsAt": "2026-10-22T03:00:00+00:00",
+    "endsAt": "0001-01-01T00:00:00Z",
+    "fingerprint": "1fbd2d61f8ded31f"
+   }
+  ],
+  "commonLabels": {
+   "alertname": "Package upgrades available",
+   "severity": "info",
+   "grafana_folder": "Homelab",
+   "instance": "fleet",
+   "job": "node"
+  },
+  "title": "[FIRING] Package upgrades available",
+  "expect": "drop"
+ },
+ {
+  "receiver": "hush",
+  "status": "firing",
+  "alerts": [
+   {
+    "status": "firing",
+    "labels": {
+     "alertname": "Tailscale node offline",
+     "severity": "warning",
+     "grafana_folder": "Homelab",
+     "instance": "phone-sumon",
+     "job": "tailscale"
+    },
+    "annotations": {
+     "summary": "phone-sumon left the tailnet",
+     "description": "tailscale node phone-sumon last seen 10m ago; mobile client"
+    },
+    "startsAt": "2026-10-22T03:00:00+00:00",
+    "endsAt": "0001-01-01T00:00:00Z",
+    "fingerprint": "4f2dd090df65b9c7"
+   }
+  ],
+  "commonLabels": {
+   "alertname": "Tailscale node offline",
+   "severity": "warning",
+   "grafana_folder": "Homelab",
+   "instance": "phone-sumon",
+   "job": "tailscale"
+  },
+  "title": "[FIRING] Tailscale node offline",
+  "expect": "drop"
+ },
+ {
+  "receiver": "hush",
+  "status": "firing",
+  "alerts": [
+   {
+    "status": "firing",
+    "labels": {
+     "alertname": "Blackbox probe flapping",
+     "severity": "warning",
+     "grafana_folder": "Homelab",
+     "instance": "navidrome.mol.la",
+     "job": "blackbox"
+    },
+    "annotations": {
+     "summary": "navidrome.mol.la probe flapped 6 times in 30m",
+     "description": "probe_success toggled 6 times; each outage under 60s; site is up now"
+    },
+    "startsAt": "2026-10-22T03:00:00+00:00",
+    "endsAt": "0001-01-01T00:00:00Z",
+    "fingerprint": "2793dc4b69e0ed77"
+   }
+  ],
+  "commonLabels": {
+   "alertname": "Blackbox probe flapping",
+   "severity": "warning",
+   "grafana_folder": "Homelab",
+   "instance": "navidrome.mol.la",
+   "job": "blackbox"
+  },
+  "title": "[FIRING] Blackbox probe flapping",
+  "expect": "drop"
+ },
+ {
+  "receiver": "hush",
+  "status": "firing",
+  "alerts": [
+   {
+    "status": "firing",
+    "labels": {
+     "alertname": "Grafana datasource health",
+     "severity": "info",
+     "grafana_folder": "Homelab",
+     "instance": "grafana",
+     "job": "grafana"
+    },
+    "annotations": {
+     "summary": "all 6 datasources healthy",
+     "description": "scheduled datasource health check passed"
+    },
+    "startsAt": "2026-10-22T03:00:00+00:00",
+    "endsAt": "0001-01-01T00:00:00Z",
+    "fingerprint": "7a19fc066f85460b"
+   }
+  ],
+  "commonLabels": {
+   "alertname": "Grafana datasource health",
+   "severity": "info",
+   "grafana_folder": "Homelab",
+   "instance": "grafana",
+   "job": "grafana"
+  },
+  "title": "[FIRING] Grafana datasource health",
+  "expect": "drop"
+ },
+ {
+  "receiver": "hush",
+  "status": "resolved",
+  "alerts": [
+   {
+    "status": "resolved",
+    "labels": {
+     "alertname": "Scrape target down",
+     "severity": "critical",
+     "grafana_folder": "Homelab",
+     "instance": "pve1:9100",
+     "job": "node"
+    },
+    "annotations": {
+     "summary": "node/pve1:9100 is not scraped",
+     "description": "node target pve1:9100 reachable again"
+    },
+    "startsAt": "2026-10-22T03:12:00+00:00",
+    "endsAt": "2026-10-22T03:16:00+00:00",
+    "fingerprint": "5db69bd8e5c72caf"
+   }
+  ],
+  "commonLabels": {
+   "alertname": "Scrape target down",
+   "severity": "critical",
+   "grafana_folder": "Homelab",
+   "instance": "pve1:9100",
+   "job": "node"
+  },
+  "title": "[RESOLVED] Scrape target down",
+  "expect": "drop"
+ }
+]
